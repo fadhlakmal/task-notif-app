@@ -1,6 +1,7 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:myapp/app/models/user_model.dart';
+import 'package:myapp/app/services/user_service.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -14,7 +15,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
   final _passwordController = TextEditingController();
   final _usernameController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
-
+  final _userService = UserService();
+  
   bool _isLoading = false;
   bool _obscurePassword = true;
   String _errorCode = "";
@@ -77,16 +79,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
             password: _passwordController.text,
           );
       
-      await FirebaseFirestore.instance
-          .collection('users')
-          .doc(credential.user?.uid)
-          .set({
-            'username': _usernameController.text,
-            'email': _emailController.text,
-            'uid': credential.user?.uid,
-            'createdAt': FieldValue.serverTimestamp(),
-            'updatedAt': FieldValue.serverTimestamp(),
-          });
+      final user = UserModel(
+        username: _usernameController.text, 
+        email: _emailController.text,
+        uid: credential.user?.uid,
+        createdAt: DateTime.now(),
+        updatedAt: DateTime.now(),
+      );
+
+      await _userService.saveUser(user);
 
       navigateHome();
     } on FirebaseAuthException catch (e) {
