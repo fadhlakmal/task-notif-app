@@ -34,7 +34,7 @@ class TaskService {
     DocumentReference docRef = await _tasks.add(task.toMap());
     
     if (task.hasNotification) {
-      await _scheduleTaskNotification(task.copyWith());
+      await _scheduleTaskNotification(task.copyWith(id: docRef.id));
     }
     
     return docRef.id;
@@ -44,7 +44,8 @@ class TaskService {
     if (_uid == null) return;
     
     await NotificationService.cancelNotification(task.id.hashCode);
-    
+    await NotificationService.cancelNotification(task.id.hashCode + 10000);
+
     await _tasks.doc(task.id).update({
       'title': task.title,
       'description': task.description,
@@ -66,6 +67,7 @@ class TaskService {
     await _tasks.doc(taskId).delete();
     
     await NotificationService.cancelNotification(taskId.hashCode);
+    await NotificationService.cancelNotification(taskId.hashCode + 10000);
   }
   
   Future<void> toggleTaskCompletion(Task task) async {
@@ -77,6 +79,7 @@ class TaskService {
     
     if (!task.isCompleted) {
       await NotificationService.cancelNotification(task.id.hashCode);
+      await NotificationService.cancelNotification(task.id.hashCode + 10000);
       
       await NotificationService.createNotification(
         id: 9000 + task.id.hashCode,

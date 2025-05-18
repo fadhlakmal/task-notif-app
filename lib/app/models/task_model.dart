@@ -56,6 +56,7 @@ class Task {
   get reminderTime => null;
 
   Task copyWith({
+    String? id,
     String? title,
     String? description,
     DateTime? dueDate,
@@ -65,7 +66,7 @@ class Task {
     int? priority,
   }) {
     return Task(
-      id: id,
+      id: id ?? this.id,
       uid: uid,
       title: title ?? this.title,
       description: description ?? this.description,

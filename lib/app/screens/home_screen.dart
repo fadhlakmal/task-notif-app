@@ -70,8 +70,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 int completedTasks = 0;
                 int pendingTasks = 0;
 
-                if (taskSnapshot.connectionState == ConnectionState.waiting &&
-                    taskSnapshot.hasData) {
+                if (taskSnapshot.hasData) {
                   final tasks = taskSnapshot.data!;
                   completedTasks =
                       tasks.where((task) => task.isCompleted).length;

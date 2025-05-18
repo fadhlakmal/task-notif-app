@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:myapp/app/config/firebase_options.dart';
+import 'package:myapp/app/screens/add_task_screen.dart';
 import 'package:myapp/app/screens/home_screen.dart';
 import 'package:myapp/app/screens/login_screen.dart';
 import 'package:myapp/app/screens/register_screen.dart';
@@ -30,6 +31,7 @@ class MyApp extends StatelessWidget {
         'login': (constext) => const LoginScreen(),
         'register': (context) => const RegisterScreen(),
         'task': (context) => const TaskScreen(),
+        'add_task': (context) => const AddTaskScreen(),
       },
     );
   }

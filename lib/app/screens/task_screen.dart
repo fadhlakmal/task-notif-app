@@ -67,9 +67,7 @@ class _TaskScreenState extends State<TaskScreen> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Add task button pressed')),
-          );
+          Navigator.pushNamed(context, 'add_task');
         },
         tooltip: 'Add Task',
         child: Icon(Icons.add),
