@@ -107,4 +107,9 @@ class NotificationService {
               : null,
     );
   }
+
+  static Future<void> cancelNotification(int id) async {
+    await AwesomeNotifications().cancel(id);
+  }
+
 }
