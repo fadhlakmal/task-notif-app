@@ -1,16 +1,19 @@
-# myapp
+# Task Management App
 
-A new Flutter project.
+This is a task management app with notification system, built using flutter and firebase (and awesome notifications lib).
 
-## Getting Started
+## Features
+- User authentication (login, register, and logout).
+- Tasks summary in home screen (completed and not completed tasks).
+- Write, read, edit, and delete task data.
+- Mark tasks as completed and set priority levels for tasks (high, medium, low).
+- Schedule notifications for task reminders, the app sets up 2 notifications:
+  - Reminder 30 minutes before task due time.
+  - Notification when tasks are due.
+- Completion notifications when tasks are marked as done.
+- User-spesific task storage.
 
-This project is a starting point for a Flutter application.
+## Demo
 
-A few resources to get you started if this is your first Flutter project:
+https://github.com/user-attachments/assets/ba54fe9b-fbd3-431a-a3f4-9cd563c560a7
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
