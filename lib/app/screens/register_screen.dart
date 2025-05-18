@@ -116,14 +116,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [
-              Color(0xFF4776E6),
-              Color(0xFF8E54E9),
-            ],
-          ),
+          color: Theme.of(context).primaryColor,
         ),
         child: Center(
           child: Container(

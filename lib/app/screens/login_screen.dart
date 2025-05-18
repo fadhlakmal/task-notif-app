@@ -84,14 +84,7 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [
-              Color(0xFF4776E6), // Vibrant blue
-              Color(0xFF8E54E9), // You can add more colors if desired
-            ],
-          ),
+          color: Theme.of(context).primaryColor,
         ),
         child: Center(
           child: Container(
